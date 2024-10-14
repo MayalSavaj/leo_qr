@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Gold</title>
+    <style>  
+        #qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+              
+         <div id="qr-code"></div>
+
+        <!-- Social Links Container -->
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.min.js"></script>
+    <script>
+        // Generate the QR Code with the link to https://kamilpatel.vercel.app/
+        const qrCode = new QRCodeStyling({
+            width: 200,
+            height: 200,
+            data: "https://leoinfo.vercel.app/",  // This is the new link for the QR code
+            dotsOptions: {
+                color: "#000",
+                type: "rounded"
+            },
+            backgroundOptions: {
+                color: "#fff"
+            }
+        });
+
+        // Append the QR code to the container
+        qrCode.append(document.getElementById("qr-code"));
+
+        // Add event listener for QR code click
+        document.getElementById("qr-code").addEventListener("click", function() {
+            // Hide the QR code and show social links
+            document.getElementById("qr-code").classList.add("hidden");
+            document.getElementById("social-links").classList.remove("hidden");
+        });
+    </script>
+
+</body>
+</html>
